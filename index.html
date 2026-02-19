@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TzQuant Fund Subscription Guide - Complete your fund investment step by step">
+    <meta name="theme-color" content="#0071e3">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="binance_fund_account.png" as="image" type="image/png">
+    <link rel="preload" href="image1.png" as="image" type="image/png">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//github.com">
+    
     <title>TzQuant Fund Subscription Guide | TzQuant 基金申购指南</title>
     <style>
         * {
@@ -837,12 +851,67 @@
             height: 240px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             opacity: 0;
+            will-change: transform;
         }
 
         .image-card img.loaded {
             opacity: 1;
+        }
+
+        .image-card img.lazyload,
+        .image-card img.lazyloading {
+            opacity: 0;
+        }
+
+        .image-card img.lazyloaded {
+            opacity: 1;
+        }
+
+        /* Image Loading Optimization */
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+        }
+
+        .image-skeleton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e8e8ed 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            z-index: 1;
+        }
+
+        .image-skeleton.hidden {
+            display: none !important;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Blur up effect for progressive loading */
+        .image-card img {
+            filter: blur(0px);
+            transition: filter 0.3s ease, opacity 0.3s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .image-card img[data-src]:not([src]) {
+            filter: blur(5px);
+        }
+
+        /* GPU acceleration for smoother animations */
+        .image-card {
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         .image-card:hover img {
@@ -1459,30 +1528,30 @@
 
             <!-- Images -->
             <div class="image-gallery reveal">
-                <div class="image-card magnetic" onclick="openModal('binance_fund_account.png')">
+                <div class="image-card magnetic" onclick="openModal('binance_fund_account.png')" data-image="binance_fund_account.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="binance_fund_account.png" alt="Binance Fund Account" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="binance_fund_account.png" alt="Binance Fund Account" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">进入币安基金账户</span>
                         <span data-lang="en">Access Binance Fund Account</span>
                     </div>
                 </div>
-                <div class="image-card magnetic" onclick="openModal('image1.png')">
+                <div class="image-card magnetic" onclick="openModal('image1.png')" data-image="image1.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image1.png" alt="Account Login" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image1.png" alt="Account Login" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">账户登录</span>
                         <span data-lang="en">Account Login</span>
                     </div>
                 </div>
-                <div class="image-card magnetic" onclick="openModal('image2.png')">
+                <div class="image-card magnetic" onclick="openModal('image2.png')" data-image="image2.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image2.png" alt="Balance Check" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image2.png" alt="Balance Check" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">检查余额</span>
@@ -1570,40 +1639,40 @@
         <div class="step-content" id="step2">
             <!-- Images -->
             <div class="image-gallery reveal">
-                <div class="image-card magnetic" onclick="openModal('image3.png')">
+                <div class="image-card magnetic" onclick="openModal('image3.png')" data-image="image3.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image3.png" alt="Fund Selection" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image3.png" alt="Fund Selection" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">选择基金</span>
                         <span data-lang="en">Select Fund</span>
                     </div>
                 </div>
-                <div class="image-card magnetic" onclick="openModal('image4.png')">
+                <div class="image-card magnetic" onclick="openModal('image4.png')" data-image="image4.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image4.png" alt="Enter Amount" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image4.png" alt="Enter Amount" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">输入金额</span>
                         <span data-lang="en">Enter Amount</span>
                     </div>
                 </div>
-                <div class="image-card magnetic" onclick="openModal('image5.png')">
+                <div class="image-card magnetic" onclick="openModal('image5.png')" data-image="image5.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image5.png" alt="Confirm Order" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image5.png" alt="Confirm Order" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">确认订单</span>
                         <span data-lang="en">Confirm Order</span>
                     </div>
                 </div>
-                <div class="image-card magnetic" onclick="openModal('image6.png')">
+                <div class="image-card magnetic" onclick="openModal('image6.png')" data-image="image6.png">
                     <div class="image-wrapper">
                         <div class="image-skeleton"></div>
-                        <img src="image6.png" alt="Success" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none';">
+                        <img class="lazy-img" data-src="image6.png" alt="Success" decoding="async">
                     </div>
                     <div class="image-caption">
                         <span data-lang="zh">完成申购</span>
@@ -1921,6 +1990,94 @@
             setTimeout(() => cancelAnimationFrame(animationId), 3500);
         }
 
+        // Image Lazy Loading with Intersection Observer
+        function initLazyLoading() {
+            // Check if IntersectionObserver is supported
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const src = img.getAttribute('data-src');
+                            
+                            if (src) {
+                                // Create a new image to preload
+                                const preloadImg = new Image();
+                                preloadImg.src = src;
+                                
+                                preloadImg.onload = function() {
+                                    img.src = src;
+                                    img.classList.add('loaded');
+                                    // Hide skeleton
+                                    const skeleton = img.previousElementSibling;
+                                    if (skeleton && skeleton.classList.contains('image-skeleton')) {
+                                        skeleton.style.display = 'none';
+                                    }
+                                };
+                                
+                                preloadImg.onerror = function() {
+                                    console.error('Failed to load image:', src);
+                                    img.style.background = '#f5f5f7';
+                                    img.style.display = 'flex';
+                                    img.style.alignItems = 'center';
+                                    img.style.justifyContent = 'center';
+                                    img.innerHTML = '<span style="color: #86868b; font-size: 14px;">Failed to load</span>';
+                                };
+                            }
+                            
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                });
+                
+                // Observe all lazy images
+                document.querySelectorAll('.lazy-img').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                document.querySelectorAll('.lazy-img').forEach(img => {
+                    const src = img.getAttribute('data-src');
+                    if (src) {
+                        img.src = src;
+                        img.onload = function() {
+                            img.classList.add('loaded');
+                            const skeleton = img.previousElementSibling;
+                            if (skeleton) skeleton.style.display = 'none';
+                        };
+                    }
+                });
+            }
+            
+            // Preload images in active step
+            preloadActiveStepImages();
+        }
+        
+        // Preload images for the currently visible step
+        function preloadActiveStepImages() {
+            const activeStep = document.querySelector('.step-content.active');
+            if (activeStep) {
+                const images = activeStep.querySelectorAll('.lazy-img');
+                images.forEach((img, index) => {
+                    // Load first 2 images immediately, rest with delay
+                    if (index < 2) {
+                        const src = img.getAttribute('data-src');
+                        if (src && !img.src) {
+                            img.src = src;
+                            img.onload = function() {
+                                img.classList.add('loaded');
+                                const skeleton = img.previousElementSibling;
+                                if (skeleton) skeleton.style.display = 'none';
+                            };
+                        }
+                    }
+                });
+            }
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             updateLanguage();
@@ -1931,7 +2088,25 @@
             initParticles();
             initScrollReveal();
             initNavScroll();
+            initLazyLoading();
+            preloadCriticalImages();
         });
+        
+        // Preload critical images (above the fold)
+        function preloadCriticalImages() {
+            const criticalImages = [
+                'binance_fund_account.png',
+                'image1.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+        }
 
         // Language Switching
         function switchLang(lang) {
@@ -1967,6 +2142,28 @@
             document.querySelectorAll('.step-content').forEach((content, index) => {
                 content.classList.toggle('active', index === stepNum - 1);
             });
+            
+            // Preload images in the newly active step
+            setTimeout(() => {
+                const newActiveStep = document.querySelector('.step-content.active');
+                if (newActiveStep) {
+                    const images = newActiveStep.querySelectorAll('.lazy-img:not([src])');
+                    images.forEach((img, index) => {
+                        // Stagger loading to prevent network congestion
+                        setTimeout(() => {
+                            const src = img.getAttribute('data-src');
+                            if (src) {
+                                img.src = src;
+                                img.onload = function() {
+                                    img.classList.add('loaded');
+                                    const skeleton = img.previousElementSibling;
+                                    if (skeleton) skeleton.style.display = 'none';
+                                };
+                            }
+                        }, index * 100);
+                    });
+                }
+            }, 300);
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
