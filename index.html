@@ -180,6 +180,19 @@
             100% { background-position: 200% 50%; }
         }
 
+        @keyframes lang-switch-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes icon-bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-10deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+            75% { transform: scale(1.1) rotate(-5deg); }
+        }
+
         /* Navigation */
         .nav-bar {
             position: fixed;
@@ -313,34 +326,54 @@
             line-height: 1.6;
         }
 
-        /* Language Switcher */
+        /* Language Switcher - Modern Sliding Toggle */
         .lang-switcher {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 4px;
             margin: 48px auto 0;
             position: relative;
             z-index: 1;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             padding: 6px;
-            border-radius: 980px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            box-shadow: 
+                0 8px 32px rgba(0, 113, 227, 0.2),
+                0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 0 0 1px rgba(0, 113, 227, 0.1);
+            border: none;
+            backdrop-filter: blur(20px) saturate(180%);
+            width: fit-content;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lang-switcher:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 113, 227, 0.25),
+                0 6px 20px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 0 0 1px rgba(0, 113, 227, 0.15);
+            transform: translateY(-2px);
         }
 
         .lang-btn {
-            padding: 12px 28px;
+            padding: 14px 32px;
             font-size: 15px;
             font-weight: 600;
             border: none;
             background: transparent;
             color: var(--text-secondary);
             cursor: pointer;
-            border-radius: 980px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 45px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 110px;
+            justify-content: center;
         }
 
         .lang-btn::before {
@@ -350,24 +383,75 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, var(--apple-blue), var(--gradient-end));
+            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--gradient-end) 50%, var(--gradient-pink) 100%);
+            background-size: 200% 200%;
             opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 980px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 45px;
             z-index: -1;
+            transform: scale(0.95);
         }
 
         .lang-btn:hover {
             color: var(--apple-blue);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            text-shadow: 0 2px 10px rgba(0, 113, 227, 0.2);
+        }
+
+        .lang-btn:hover::before {
+            opacity: 0.1;
+            transform: scale(1);
         }
 
         .lang-btn.active {
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(0, 113, 227, 0.4),
+                0 4px 12px rgba(88, 86, 214, 0.3);
         }
 
         .lang-btn.active::before {
             opacity: 1;
+            transform: scale(1);
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        .lang-icon {
+            font-size: 18px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .lang-btn:hover .lang-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .lang-btn.active .lang-icon {
+            animation: icon-bounce 0.6s ease;
+        }
+
+        .lang-btn.switching {
+            animation: lang-switch-pop 0.3s ease;
+        }
+
+        /* Language switch ripple effect */
+        .lang-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .lang-btn:active::after {
+            width: 200px;
+            height: 200px;
         }
 
         /* Container */
@@ -1443,8 +1527,14 @@
                 <span data-lang="en">Follow the steps below to complete your fund subscription</span>
             </p>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
-                <button class="lang-btn" onclick="switchLang('en')">English</button>
+                <button class="lang-btn active" onclick="switchLang('zh')">
+                    <span class="lang-icon">🇨🇳</span>
+                    <span>中文</span>
+                </button>
+                <button class="lang-btn" onclick="switchLang('en')">
+                    <span class="lang-icon">🇺🇸</span>
+                    <span>English</span>
+                </button>
             </div>
         </div>
     </section>
@@ -2112,11 +2202,18 @@
         function switchLang(lang) {
             currentLang = lang;
             
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', 
-                    (lang === 'zh' && btn.textContent === '中文') ||
-                    (lang === 'en' && btn.textContent === 'English')
-                );
+            document.querySelectorAll('.lang-btn').forEach((btn, index) => {
+                // 第一个按钮是中文，第二个是英文
+                const isZh = index === 0;
+                const shouldBeActive = (lang === 'zh' && isZh) || (lang === 'en' && !isZh);
+                
+                if (shouldBeActive && !btn.classList.contains('active')) {
+                    // 添加切换动画
+                    btn.classList.add('switching');
+                    setTimeout(() => btn.classList.remove('switching'), 300);
+                }
+                
+                btn.classList.toggle('active', shouldBeActive);
             });
             
             document.querySelectorAll('[data-lang]').forEach(el => {
@@ -2125,6 +2222,9 @@
             
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
             updateProgress();
+            
+            // 添加切换动画反馈
+            showToast(lang === 'zh' ? '已切换至中文' : 'Switched to English');
         }
 
         function updateLanguage() {
