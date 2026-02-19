@@ -2408,6 +2408,11 @@
             
             triggerConfetti();
             showToast(currentLang === 'zh' ? '正在跳转到申购页面...' : 'Redirecting...');
+            
+            // 1.5秒后跳转到币安申购页面
+            setTimeout(() => {
+                window.open('https://www.binance.com/en/my/sub-account/fund/detail?fundId=77&fundName=TzQuantAlpha001&fundAccountId=1209007166&currency=USDT', '_blank');
+            }, 1500);
         }
 
         // Scroll Reveal
