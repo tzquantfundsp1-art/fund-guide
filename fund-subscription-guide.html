@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TzQuant Fund Subscription Guide | TzQuant 基金申购指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --apple-blue: #0071e3;
+            --apple-blue-hover: #0077ed;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --background: #ffffff;
+            --background-secondary: #f5f5f7;
+            --border: #d2d2d7;
+            --success: #34c759;
+            --warning: #ff9500;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Arial', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.47059;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            color: #ffffff;
+        }
+
+        .nav-item.active {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 20px 60px;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 21px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 30px auto 0;
+        }
+
+        .lang-btn {
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: 400;
+            border: none;
+            background: transparent;
+            color: var(--apple-blue);
+            cursor: pointer;
+            border-radius: 980px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: var(--apple-blue);
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: var(--apple-blue);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            background: var(--background-secondary);
+            border-radius: 18px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .progress-percent {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--apple-blue);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--apple-blue);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.021em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Notice Card */
+        .notice-card {
+            background: var(--background-secondary);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .notice-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .notice-icon {
+            font-size: 24px;
+        }
+
+        .notice-title {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .notice-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item:hover {
+            opacity: 0.7;
+        }
+
+        .notice-item.checked {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .notice-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .notice-text {
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .notice-warning {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--warning);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Fund ID Card */
+        .fund-card {
+            background: linear-gradient(135deg, #1d1d1f 0%, #434344 100%);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .fund-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .fund-icon {
+            font-size: 20px;
+        }
+
+        .fund-title {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .fund-display {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .fund-display:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .fund-id {
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'SF Mono', 'Courier New', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        .fund-copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .fund-copy-btn:hover {
+            background: var(--apple-blue-hover);
+        }
+
+        .fund-copy-btn.copied {
+            background: var(--success);
+        }
+
+        .fund-hint {
+            margin-top: 12px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .image-card {
+            background: var(--background-secondary);
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            padding: 16px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background-secondary);
+        }
+
+        /* Action List */
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--background-secondary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .action-item:hover {
+            background: var(--background);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .action-item.completed {
+            border-left-color: var(--success);
+            background: rgba(52, 199, 89, 0.05);
+        }
+
+        .action-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .action-item.completed .action-number {
+            background: var(--success);
+        }
+
+        .action-content {
+            flex: 1;
+        }
+
+        .action-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .action-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .action-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .action-item.completed .action-check {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        /* Step Navigation */
+        .step-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-nav-btn {
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            background: var(--background-secondary);
+            color: var(--text-primary);
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .step-nav-btn:hover {
+            background: var(--border);
+        }
+
+        .step-nav-btn.active {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        /* Step Content */
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover:not(:disabled) {
+            background: var(--apple-blue-hover);
+            transform: scale(1.02);
+        }
+
+        .cta-button:disabled {
+            background: var(--border);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10001;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .nav-bar {
+                gap: 20px;
+            }
+
+            .nav-item {
+                font-size: 11px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .fund-display {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="#" class="nav-item active" onclick="showStep(1); return false;">
+            <span data-lang="zh">账户准备</span>
+            <span data-lang="en">Preparation</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showStep(2); return false;">
+            <span data-lang="zh">提交申购</span>
+            <span data-lang="en">Subscription</span>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>
+            <span data-lang="zh">TzQuant 基金申购指南</span>
+            <span data-lang="en">TzQuant Fund Subscription</span>
+        </h1>
+        <p>
+            <span data-lang="zh">请按照以下步骤完成基金申购，确保您的投资顺利进行</span>
+            <span data-lang="en">Follow the steps below to complete your fund subscription</span>
+        </p>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+            <button class="lang-btn" onclick="switchLang('en')">English</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <span class="progress-title">
+                    <span data-lang="zh">完成进度</span>
+                    <span data-lang="en">Progress</span>
+                </span>
+                <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Step 1: Account Preparation -->
+        <div class="step-content active" id="step1">
+            <!-- Notice Card -->
+            <div class="notice-card">
+                <div class="notice-header">
+                    <span class="notice-icon">⚠️</span>
+                    <span class="notice-title">
+                        <span data-lang="zh">重要提示</span>
+                        <span data-lang="en">Important Notice</span>
+                    </span>
+                </div>
+                <div class="notice-list">
+                    <div class="notice-item" onclick="toggleNotice(this)">
+                        <div class="notice-check">✓</div>
+                        <span class="notice-text">
+                            <span data-lang="zh">您的可用余额足以支付申购金额</span>
+                            <span data-lang="en">Your available balance is sufficient</span>
+                        </span>
+                    </div>
+                    <div class="notice-item" onclick="toggleNotice(this)">
+                        <div class="notice-check">✓</div>
+                        <span class="notice-text">
+                            <span data-lang="zh">USDT 灵活储蓄的自动申购功能已被禁用</span>
+                            <span data-lang="en">USDT Flexible Savings auto-subscription is disabled</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="notice-warning">
+                    <span>⚠️</span>
+                    <span>
+                        <span data-lang="zh">否则，由于可用资金不足，申购可能无法成功处理。</span>
+                        <span data-lang="en">Otherwise, subscription may fail due to insufficient funds.</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Fund ID Card -->
+            <div class="fund-card">
+                <div class="fund-header">
+                    <span class="fund-icon">📋</span>
+                    <span class="fund-title">
+                        <span data-lang="zh">基金 ID</span>
+                        <span data-lang="en">Fund ID</span>
+                    </span>
+                </div>
+                <div class="fund-display" onclick="copyFundId()">
+                    <span class="fund-id" id="fundId">1209007166</span>
+                    <button class="fund-copy-btn" id="copyBtn" onclick="event.stopPropagation()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span data-lang="zh">复制</span>
+                        <span data-lang="en">Copy</span>
+                    </button>
+                </div>
+                <p class="fund-hint">
+                    <span data-lang="zh">点击上方基金 ID 可一键复制</span>
+                    <span data-lang="en">Click Fund ID above to copy</span>
+                </p>
+            </div>
+
+            <!-- Images -->
+            <div class="image-gallery">
+                <div class="image-card" onclick="openModal('binance_fund_account.png')">
+                    <img src="binance_fund_account.png" alt="Binance Fund Account">
+                    <div class="image-caption">
+                        <span data-lang="zh">进入币安基金账户</span>
+                        <span data-lang="en">Access Binance Fund Account</span>
+                    </div>
+                </div>
+                <div class="image-card" onclick="openModal('image1.png')">
+                    <img src="image1.png" alt="Account Login">
+                    <div class="image-caption">
+                        <span data-lang="zh">账户登录</span>
+                        <span data-lang="en">Account Login</span>
+                    </div>
+                </div>
+                <div class="image-card" onclick="openModal('image2.png')">
+                    <img src="image2.png" alt="Balance Check">
+                    <div class="image-caption">
+                        <span data-lang="zh">检查余额</span>
+                        <span data-lang="en">Check Balance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-list">
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">1</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">进入币安 Earn - 基金账户</span>
+                            <span data-lang="en">Access Binance Earn - Fund Account</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">导航至币安理财页面的基金账户栏目</span>
+                            <span data-lang="en">Navigate to the Fund Account section</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">2</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">登录您的币安账户</span>
+                            <span data-lang="en">Login to your Binance account</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">使用您的用户名和密码安全登录</span>
+                            <span data-lang="en">Use your credentials to login securely</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">3</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">确认账户已完成实名认证</span>
+                            <span data-lang="en">Verify your account is authenticated</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">检查您的认证状态是否已通过</span>
+                            <span data-lang="en">Check if your KYC verification is approved</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">4</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">检查 USDT 余额是否充足</span>
+                            <span data-lang="en">Check USDT balance</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">确保可用余额大于申购金额</span>
+                            <span data-lang="en">Ensure available balance exceeds subscription amount</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">5</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">关闭 USDT 灵活储蓄的自动申购功能</span>
+                            <span data-lang="en">Disable USDT Flexible Savings auto-subscription</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">在理财设置中关闭自动申购以避免资金冲突</span>
+                            <span data-lang="en">Turn off auto-subscription in savings settings</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Submit Subscription -->
+        <div class="step-content" id="step2">
+            <!-- Images -->
+            <div class="image-gallery">
+                <div class="image-card" onclick="openModal('image3.png')">
+                    <img src="image3.png" alt="Fund Selection">
+                    <div class="image-caption">
+                        <span data-lang="zh">选择基金</span>
+                        <span data-lang="en">Select Fund</span>
+                    </div>
+                </div>
+                <div class="image-card" onclick="openModal('image4.png')">
+                    <img src="image4.png" alt="Enter Amount">
+                    <div class="image-caption">
+                        <span data-lang="zh">输入金额</span>
+                        <span data-lang="en">Enter Amount</span>
+                    </div>
+                </div>
+                <div class="image-card" onclick="openModal('image5.png')">
+                    <img src="image5.png" alt="Confirm Order">
+                    <div class="image-caption">
+                        <span data-lang="zh">确认订单</span>
+                        <span data-lang="en">Confirm Order</span>
+                    </div>
+                </div>
+                <div class="image-card" onclick="openModal('image6.png')">
+                    <img src="image6.png" alt="Success">
+                    <div class="image-caption">
+                        <span data-lang="zh">完成申购</span>
+                        <span data-lang="en">Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-list">
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">1</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">进入基金申购页面</span>
+                            <span data-lang="en">Navigate to fund subscription page</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">从主导航菜单选择"基金申购"</span>
+                            <span data-lang="en">Select "Fund Subscription" from main menu</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">2</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">选择您要申购的基金产品</span>
+                            <span data-lang="en">Select the fund product</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">浏览可用基金列表并选择目标产品</span>
+                            <span data-lang="en">Browse available funds and select target</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">3</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">输入申购金额</span>
+                            <span data-lang="en">Enter subscription amount</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">输入您想要投资的 USDT 金额</span>
+                            <span data-lang="en">Enter USDT amount you want to invest</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">4</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">确认申购信息并提交</span>
+                            <span data-lang="en">Confirm and submit</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">仔细核对所有信息，然后点击提交按钮</span>
+                            <span data-lang="en">Review all details carefully, then submit</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+                <div class="action-item" onclick="toggleAction(this)">
+                    <div class="action-number">5</div>
+                    <div class="action-content">
+                        <div class="action-title">
+                            <span data-lang="zh">等待系统处理完成</span>
+                            <span data-lang="en">Wait for processing</span>
+                        </div>
+                        <div class="action-desc">
+                            <span data-lang="zh">处理完成后您将收到确认通知</span>
+                            <span data-lang="en">You will receive confirmation once processed</span>
+                        </div>
+                    </div>
+                    <div class="action-check"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <button class="cta-button" id="ctaBtn" onclick="startSubscription()" disabled>
+                <span data-lang="zh">开始申购</span>
+                <span data-lang="en">Start Subscription</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal(event, true)">×</div>
+            <img class="modal-image" id="modalImg" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // State
+        let currentLang = 'zh';
+        let completedActions = new Set();
+        const totalActions = 10;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage();
+            updateProgress();
+        });
+
+        // Language Switching
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', 
+                    (lang === 'zh' && btn.textContent === '中文') ||
+                    (lang === 'en' && btn.textContent === 'English')
+                );
+            });
+            
+            // Update content visibility
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = 'inline';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            
+            // Update HTML lang
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        function updateLanguage() {
+            // Set initial state
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === 'zh') {
+                    el.style.display = 'inline';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        // Step Navigation
+        function showStep(stepNum) {
+            // Update nav
+            document.querySelectorAll('.nav-item').forEach((item, index) => {
+                item.classList.toggle('active', index === stepNum - 1);
+            });
+            
+            // Update content
+            document.querySelectorAll('.step-content').forEach((content, index) => {
+                if (index === stepNum - 1) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Action
+        function toggleAction(element) {
+            element.classList.toggle('completed');
+            
+            const check = element.querySelector('.action-check');
+            if (element.classList.contains('completed')) {
+                check.innerHTML = '✓';
+            } else {
+                check.innerHTML = '';
+            }
+            
+            updateProgress();
+        }
+
+        // Toggle Notice
+        function toggleNotice(element) {
+            element.classList.toggle('checked');
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const completed = document.querySelectorAll('.action-item.completed').length;
+            const percentage = Math.round((completed / totalActions) * 100);
+            
+            document.getElementById('progressPercent').textContent = percentage + '%';
+            document.getElementById('progressFill').style.width = percentage + '%';
+            
+            // Update CTA button
+            const ctaBtn = document.getElementById('ctaBtn');
+            if (percentage === 100) {
+                ctaBtn.disabled = false;
+                ctaBtn.innerHTML = currentLang === 'zh' ? '开始申购 →' : 'Start Subscription →';
+            } else {
+                ctaBtn.disabled = true;
+                ctaBtn.innerHTML = currentLang === 'zh' 
+                    ? `请先完成所有步骤 (${percentage}%)` 
+                    : `Complete all steps (${percentage}%)`;
+            }
+        }
+
+        // Copy Fund ID
+        function copyFundId() {
+            const fundId = document.getElementById('fundId').textContent;
+            
+            navigator.clipboard.writeText(fundId).then(() => {
+                showToast(currentLang === 'zh' ? '基金 ID 已复制' : 'Fund ID copied');
+                
+                // Visual feedback
+                const btn = document.getElementById('copyBtn');
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 2000);
+            }).catch(() => {
+                showToast(currentLang === 'zh' ? '复制失败' : 'Copy failed', true);
+            });
+        }
+
+        // Modal
+        function openModal(src) {
+            const modal = document.getElementById('modal');
+            const img = document.getElementById('modalImg');
+            img.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event, force) {
+            if (force || event.target === document.getElementById('modal')) {
+                document.getElementById('modal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Toast
+        function showToast(message, isError) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.background = isError ? 'rgba(255, 59, 48, 0.9)' : 'rgba(0, 0, 0, 0.8)';
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Start Subscription
+        function startSubscription() {
+            const percentage = parseInt(document.getElementById('progressPercent').textContent);
+            
+            if (percentage < 100) {
+                showToast(currentLang === 'zh' ? '请先完成所有步骤' : 'Please complete all steps', true);
+                return;
+            }
+            
+            showToast(currentLang === 'zh' ? '正在跳转到申购页面...' : 'Redirecting...');
+            // window.location.href = '/subscription';
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal(null, true);
+            }
+        });
+    </script>
+</body>
+</html>
