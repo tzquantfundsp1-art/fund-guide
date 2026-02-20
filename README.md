@@ -3,13 +3,13 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://tzquantfundsp1-art.github.io/fund-guide/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-> 一个优雅、交互式的基金申购指南网站，支持中英文双语切换。
+> 一个优雅、交互式的基金申购指南网站，支持中英日印韩五国语言切换。
 
 🔗 **在线预览**: https://tzquantfundsp1-art.github.io/fund-guide/
 
 ## ✨ 功能特性
 
-- 🌍 **双语支持** - 中文/English 一键切换，带有国旗图标和流畅动画
+- 🌍 **多语言支持** - 中文/English/日本語/Indonesia/한국어 一键切换，带有国旗图标和流畅动画
 - 📱 **响应式设计** - 完美适配桌面、平板和移动设备
 - 🎨 **现代UI设计** - Apple风格设计语言，毛玻璃效果、渐变背景
 - 🖼️ **图片懒加载** - 智能预加载策略，优化加载速度
@@ -78,6 +78,10 @@ git push origin main
 推送到 `main` 分支后，GitHub Actions 会自动部署到 GitHub Pages。
 
 ## 📝 更新日志
+
+### 2026-02-20
+- ✨ 添加多语言支持（中英日印韩5国语言）
+- 🎨 优化语言切换器UI，支持5种语言切换
 
 ### 2025-02-19
 - ✨ 添加币安申购页面自动跳转功能

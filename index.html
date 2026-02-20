@@ -17,7 +17,7 @@
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//github.com">
     
-    <title>TzQuant Fund Subscription Guide | TzQuant 基金申购指南</title>
+    <title>TzQuant Fund Subscription Guide | TzQuant 基金申购指南 | TzQuant ファンド申购ガイド</title>
     <style>
         * {
             margin: 0;
@@ -1506,10 +1506,16 @@
         <a href="#" class="nav-item active" onclick="showStep(1); return false;">
             <span data-lang="zh">账户准备</span>
             <span data-lang="en">Preparation</span>
+            <span data-lang="ja">準備</span>
+            <span data-lang="id">Persiapan</span>
+            <span data-lang="ko">준비</span>
         </a>
         <a href="#" class="nav-item" onclick="showStep(2); return false;">
             <span data-lang="zh">提交申购</span>
             <span data-lang="en">Subscription</span>
+            <span data-lang="ja">申购</span>
+            <span data-lang="id">Berlangganan</span>
+            <span data-lang="ko">申购</span>
         </a>
     </nav>
 
@@ -1521,19 +1527,37 @@
             <h1>
                 <span data-lang="zh">TzQuant 基金申购指南</span>
                 <span data-lang="en">TzQuant Fund Subscription</span>
+                <span data-lang="ja">TzQuant ファンド申购ガイド</span>
+                <span data-lang="id">Panduan Langganan Dana TzQuant</span>
+                <span data-lang="ko">TzQuant 펀드申购 가이드</span>
             </h1>
             <p>
                 <span data-lang="zh">请按照以下步骤完成基金申购，确保您的投资顺利进行</span>
                 <span data-lang="en">Follow the steps below to complete your fund subscription</span>
+                <span data-lang="ja">以下の手順に従ってファンド申购を完了してください</span>
+                <span data-lang="id">Ikuti langkah-langkah di bawah untuk menyelesaikan langganan dana Anda</span>
+                <span data-lang="ko">다음 단계에 따라 펀드申购를 완료하세요</span>
             </p>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="switchLang('zh')">
+                <button class="lang-btn" onclick="switchLang('zh')" data-lang-btn="zh">
                     <span class="lang-icon">🇨🇳</span>
                     <span>中文</span>
                 </button>
-                <button class="lang-btn" onclick="switchLang('en')">
+                <button class="lang-btn" onclick="switchLang('en')" data-lang-btn="en">
                     <span class="lang-icon">🇺🇸</span>
                     <span>English</span>
+                </button>
+                <button class="lang-btn" onclick="switchLang('ja')" data-lang-btn="ja">
+                    <span class="lang-icon">🇯🇵</span>
+                    <span>日本語</span>
+                </button>
+                <button class="lang-btn" onclick="switchLang('id')" data-lang-btn="id">
+                    <span class="lang-icon">🇮🇩</span>
+                    <span>Indonesia</span>
+                </button>
+                <button class="lang-btn" onclick="switchLang('ko')" data-lang-btn="ko">
+                    <span class="lang-icon">🇰🇷</span>
+                    <span>한국어</span>
                 </button>
             </div>
         </div>
@@ -1546,6 +1570,9 @@
                 <span class="progress-title">
                     <span data-lang="zh">完成进度</span>
                     <span data-lang="en">Progress</span>
+                    <span data-lang="ja">進捗状況</span>
+                    <span data-lang="id">Kemajuan</span>
+                    <span data-lang="ko">진행률</span>
                 </span>
                 <span class="progress-percent" id="progressPercent">0%</span>
             </div>
@@ -1563,6 +1590,9 @@
                     <span class="notice-title">
                         <span data-lang="zh">重要提示</span>
                         <span data-lang="en">Important Notice</span>
+                        <span data-lang="ja">重要な注意</span>
+                        <span data-lang="id">Pemberitahuan Penting</span>
+                        <span data-lang="ko">중요 공지</span>
                     </span>
                 </div>
                 <div class="notice-list">
@@ -1571,6 +1601,9 @@
                         <span class="notice-text">
                             <span data-lang="zh">您的可用余额足以支付申购金额</span>
                             <span data-lang="en">Your available balance is sufficient</span>
+                            <span data-lang="ja">利用可能な残高が申购金額に達しています</span>
+                            <span data-lang="id">Saldo tersedia Anda cukup</span>
+                            <span data-lang="ko">사용 가능한 잔액이 충분히 있습니다</span>
                         </span>
                     </div>
                     <div class="notice-item" onclick="toggleNotice(this)">
@@ -1578,6 +1611,9 @@
                         <span class="notice-text">
                             <span data-lang="zh">USDT 灵活储蓄的自动申购功能已被禁用</span>
                             <span data-lang="en">USDT Flexible Savings auto-subscription is disabled</span>
+                            <span data-lang="ja">USDTフレキシブル貯蓄の自动申购は無効です</span>
+                            <span data-lang="id">Auto-subscription Tabungan Fleksibel USDT dinonaktifkan</span>
+                            <span data-lang="ko">USDT 유연貯蓄 자동申购가 비활성화되었습니다</span>
                         </span>
                     </div>
                 </div>
@@ -1586,6 +1622,9 @@
                     <span>
                         <span data-lang="zh">否则，由于可用资金不足，申购可能无法成功处理。</span>
                         <span data-lang="en">Otherwise, subscription may fail due to insufficient funds.</span>
+                        <span data-lang="ja"> 그렇지 않으면、残高不足により申购が失敗する可能性があります。</span>
+                        <span data-lang="id">Jika tidak, langganan mungkin gagal karena dana tidak cukup.</span>
+                        <span data-lang="ko">그렇지 않으면 잔액 부족으로申购가 실패할 수 있습니다.</span>
                     </span>
                 </div>
             </div>
@@ -1597,6 +1636,9 @@
                     <span class="fund-title">
                         <span data-lang="zh">基金 ID</span>
                         <span data-lang="en">Fund ID</span>
+                        <span data-lang="ja">ファンドID</span>
+                        <span data-lang="id">ID Dana</span>
+                        <span data-lang="ko">펀드 ID</span>
                     </span>
                 </div>
                 <div class="fund-display" onclick="copyFundId()">
@@ -1608,11 +1650,17 @@
                         </svg>
                         <span data-lang="zh">复制</span>
                         <span data-lang="en">Copy</span>
+                        <span data-lang="ja">コピー</span>
+                        <span data-lang="id">Salin</span>
+                        <span data-lang="ko">복사</span>
                     </button>
                 </div>
                 <p class="fund-hint">
                     <span data-lang="zh">点击上方基金 ID 可一键复制</span>
                     <span data-lang="en">Click Fund ID above to copy</span>
+                    <span data-lang="ja">上のファンドIDをクリックしてコピー</span>
+                    <span data-lang="id">Klik ID Dana di atas untuk menyalin</span>
+                    <span data-lang="ko">위의 펀드를 클릭하여 복사하세요</span>
                 </p>
             </div>
 
@@ -1626,6 +1674,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">进入币安基金账户</span>
                         <span data-lang="en">Access Binance Fund Account</span>
+                        <span data-lang="ja">Binanceファンドアカウントにアクセス</span>
+                        <span data-lang="id">Akses Akun Dana Binance</span>
+                        <span data-lang="ko">바이낸스 펀드 계정 접근</span>
                     </div>
                 </div>
                 <div class="image-card magnetic" onclick="openModal('image1.png')" data-image="image1.png">
@@ -1636,6 +1687,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">账户登录</span>
                         <span data-lang="en">Account Login</span>
+                        <span data-lang="ja">アカウントログイン</span>
+                        <span data-lang="id">Login Akun</span>
+                        <span data-lang="ko">계정 로그인</span>
                     </div>
                 </div>
                 <div class="image-card magnetic" onclick="openModal('image2.png')" data-image="image2.png">
@@ -1646,6 +1700,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">检查余额</span>
                         <span data-lang="en">Check Balance</span>
+                        <span data-lang="ja">残高確認</span>
+                        <span data-lang="id">Periksa Saldo</span>
+                        <span data-lang="ko">잔액 확인</span>
                     </div>
                 </div>
             </div>
@@ -1658,10 +1715,16 @@
                         <div class="action-title">
                             <span data-lang="zh">进入币安 子账户 - 基金账户</span>
                             <span data-lang="en">Access Binance Sub-account - Fund Account</span>
+                            <span data-lang="ja">Binanceサブアカウント - ファンドアカウントにアクセス</span>
+                            <span data-lang="id">Akses Sub-akun Binance - Akun Dana</span>
+                            <span data-lang="ko">바이낸스 서브계정 - 펀드 계정 접근</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">导航至币安子账户页面的基金账户栏目</span>
                             <span data-lang="en">Navigate to the Fund Account section on Binance Sub-account page</span>
+                            <span data-lang="ja">Binanceサブアカウントページのファンドアカウントセクションに移動</span>
+                            <span data-lang="id">Navigasi ke bagian Akun Dana di halaman Sub-akun Binance</span>
+                            <span data-lang="ko">바이낸스 서브계정 페이지의 펀드로 이동하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1672,10 +1735,16 @@
                         <div class="action-title">
                             <span data-lang="zh">登录您的币安账户</span>
                             <span data-lang="en">Login to your Binance account</span>
+                            <span data-lang="ja">Binanceアカウントにログイン</span>
+                            <span data-lang="id">Masuk ke akun Binance Anda</span>
+                            <span data-lang="ko">바이낸스 계정에 로그인하세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">使用您的用户名和密码安全登录</span>
                             <span data-lang="en">Use your credentials to login securely</span>
+                            <span data-lang="ja">認証情報を使用して安全にログイン</span>
+                            <span data-lang="id">Gunakan kredensial Anda untuk masuk dengan aman</span>
+                            <span data-lang="ko">자격 증명을 사용하여 안전하게 로그인하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1686,10 +1755,16 @@
                         <div class="action-title">
                             <span data-lang="zh">确认账户已完成实名认证</span>
                             <span data-lang="en">Verify your account is authenticated</span>
+                            <span data-lang="ja">アカウントの本人確認が完了していることを確認</span>
+                            <span data-lang="id">Verifikasi akun Anda telah terautentikasi</span>
+                            <span data-lang="ko">계정이 인증되었는지 확인하세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">检查您的认证状态是否已通过</span>
                             <span data-lang="en">Check if your KYC verification is approved</span>
+                            <span data-lang="ja">KYC認証是否合格か確認</span>
+                            <span data-lang="id">Periksa apakah verifikasi KYC Anda disetujui</span>
+                            <span data-lang="ko">KYC 인증이 승인되었는지 확인하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1700,10 +1775,16 @@
                         <div class="action-title">
                             <span data-lang="zh">检查 USDT 余额是否充足</span>
                             <span data-lang="en">Check USDT balance</span>
+                            <span data-lang="ja">USDT残高を確認</span>
+                            <span data-lang="id">Periksa saldo USDT</span>
+                            <span data-lang="ko">USDT 잔액 확인</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">确保可用余额大于申购金额</span>
                             <span data-lang="en">Ensure available balance exceeds subscription amount</span>
+                            <span data-lang="ja">利用可能な残高が申购金額を超えることを確認</span>
+                            <span data-lang="id">Pastikan saldo tersedia melebihi jumlah langganan</span>
+                            <span data-lang="ko">사용 가능한 잔액이申购 금액보다 큰지 확인하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1714,10 +1795,16 @@
                         <div class="action-title">
                             <span data-lang="zh">关闭 USDT 灵活储蓄的自动申购功能</span>
                             <span data-lang="en">Disable USDT Flexible Savings auto-subscription</span>
+                            <span data-lang="ja">USDTフレキシブル貯蓄の自动申购を無効化</span>
+                            <span data-lang="id">Nonaktifkan auto-subscription Tabungan Fleksibel USDT</span>
+                            <span data-lang="ko">USDT 유연貯蓄 자동申购 비활성화</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">在理财设置中关闭自动申购以避免资金冲突</span>
                             <span data-lang="en">Turn off auto-subscription in savings settings</span>
+                            <span data-lang="ja">貯蓄設定で自动申购をオフに</span>
+                            <span data-lang="id">Matikan auto-subscription di pengaturan tabungan</span>
+                            <span data-lang="ko">저축 설정에서 자동申购를 끕니다</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1737,6 +1824,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">选择基金</span>
                         <span data-lang="en">Select Fund</span>
+                        <span data-lang="ja">ファンドを選択</span>
+                        <span data-lang="id">Pilih Dana</span>
+                        <span data-lang="ko">펀드 선택</span>
                     </div>
                 </div>
                 <div class="image-card magnetic" onclick="openModal('image4.png')" data-image="image4.png">
@@ -1747,6 +1837,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">输入金额</span>
                         <span data-lang="en">Enter Amount</span>
+                        <span data-lang="ja">金額を入力</span>
+                        <span data-lang="id">Masukkan Jumlah</span>
+                        <span data-lang="ko">금액 입력</span>
                     </div>
                 </div>
                 <div class="image-card magnetic" onclick="openModal('image5.png')" data-image="image5.png">
@@ -1757,6 +1850,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">确认订单</span>
                         <span data-lang="en">Confirm Order</span>
+                        <span data-lang="ja">注文を確認</span>
+                        <span data-lang="id">Konfirmasi Pesanan</span>
+                        <span data-lang="ko">주문 확인</span>
                     </div>
                 </div>
                 <div class="image-card magnetic" onclick="openModal('image6.png')" data-image="image6.png">
@@ -1767,6 +1863,9 @@
                     <div class="image-caption">
                         <span data-lang="zh">完成申购</span>
                         <span data-lang="en">Complete</span>
+                        <span data-lang="ja">申购完了</span>
+                        <span data-lang="id">Selesai</span>
+                        <span data-lang="ko">申购 완료</span>
                     </div>
                 </div>
             </div>
@@ -1779,10 +1878,16 @@
                         <div class="action-title">
                             <span data-lang="zh">进入基金申购页面</span>
                             <span data-lang="en">Navigate to fund subscription page</span>
+                            <span data-lang="ja">ファンド申购ページに移動</span>
+                            <span data-lang="id">Navigasi ke halaman langganan dana</span>
+                            <span data-lang="ko">펀드로 이동하세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">从主导航菜单选择"基金申购"</span>
                             <span data-lang="en">Select "Fund Subscription" from main menu</span>
+                            <span data-lang="ja">メインメニューから「ファンド申购」を選択</span>
+                            <span data-lang="id">Pilih "Langganan Dana" dari menu utama</span>
+                            <span data-lang="ko">메인 메뉴에서 "펀드로"를 선택하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1793,10 +1898,16 @@
                         <div class="action-title">
                             <span data-lang="zh">选择您要申购的基金产品</span>
                             <span data-lang="en">Select the fund product</span>
+                            <span data-lang="ja">申购するファンド商品を選択</span>
+                            <span data-lang="id">Pilih produk dana yang ingin Anda langgani</span>
+                            <span data-lang="ko">申购할 펀드 제품을 선택하세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">浏览可用基金列表并选择目标产品</span>
                             <span data-lang="en">Browse available funds and select target</span>
+                            <span data-lang="ja">利用可能なファンドリストから目標を選択</span>
+                            <span data-lang="id">Telusuri daftar dana yang tersedia dan pilih target</span>
+                            <span data-lang="ko">사용 가능한 펀드를 찾아目标是 제품을 선택하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1807,10 +1918,16 @@
                         <div class="action-title">
                             <span data-lang="zh">输入申购金额</span>
                             <span data-lang="en">Enter subscription amount</span>
+                            <span data-lang="ja">申购金額を入力</span>
+                            <span data-lang="id">Masukkan jumlah langganan</span>
+                            <span data-lang="ko">申购 금액을 입력하세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">输入您想要投资的 USDT 金额</span>
                             <span data-lang="en">Enter USDT amount you want to invest</span>
+                            <span data-lang="ja">投資したいUSDT金額を入力</span>
+                            <span data-lang="id">Masukkan jumlah USDT yang ingin Anda investasikan</span>
+                            <span data-lang="ko">투자할 USDT 금액을 입력하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1821,10 +1938,16 @@
                         <div class="action-title">
                             <span data-lang="zh">确认申购信息并提交</span>
                             <span data-lang="en">Confirm and submit</span>
+                            <span data-lang="ja">申购情報を確認して提交</span>
+                            <span data-lang="id">Konfirmasi dan kirim</span>
+                            <span data-lang="ko">확인 후 제출</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">仔细核对所有信息，然后点击提交按钮</span>
                             <span data-lang="en">Review all details carefully, then submit</span>
+                            <span data-lang="ja">すべての詳細を注意深く確認してから提交</span>
+                            <span data-lang="id">Periksa semua detail dengan hati-hati, lalu kirim</span>
+                            <span data-lang="ko">모든 세부 정보를주의 깊게 검토한 후 제출하세요</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1835,10 +1958,16 @@
                         <div class="action-title">
                             <span data-lang="zh">等待系统处理完成</span>
                             <span data-lang="en">Wait for processing</span>
+                            <span data-lang="ja">システム処理が完了するのを待つ</span>
+                            <span data-lang="id">Tunggu pemrosesan</span>
+                            <span data-lang="ko">처리될 때까지 기다리세요</span>
                         </div>
                         <div class="action-desc">
                             <span data-lang="zh">处理完成后您将收到确认通知</span>
                             <span data-lang="en">You will receive confirmation once processed</span>
+                            <span data-lang="ja">処理完了後、確認通知を受け取り</span>
+                            <span data-lang="id">Anda akan menerima konfirmasi setelah diproses</span>
+                            <span data-lang="ko">처리 완료 후 확인 알림을 받게 됩니다</span>
                         </div>
                     </div>
                     <div class="action-check"></div>
@@ -1851,6 +1980,9 @@
             <button class="cta-button magnetic" id="ctaBtn" onclick="startSubscription()" disabled>
                 <span data-lang="zh">开始申购</span>
                 <span data-lang="en">Start Subscription</span>
+                <span data-lang="ja">申购を開始</span>
+                <span data-lang="id">Mulai Langganan</span>
+                <span data-lang="ko">申购 시작</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -1873,6 +2005,14 @@
         // State
         let currentLang = 'zh';
         const totalActions = 10;
+
+        const langNames = {
+            'zh': '中文',
+            'en': 'English',
+            'ja': '日本語',
+            'id': 'Indonesia',
+            'ko': '한국어'
+        };
 
         // Custom Cursor
         function initCustomCursor() {
@@ -2202,13 +2342,11 @@
         function switchLang(lang) {
             currentLang = lang;
             
-            document.querySelectorAll('.lang-btn').forEach((btn, index) => {
-                // 第一个按钮是中文，第二个是英文
-                const isZh = index === 0;
-                const shouldBeActive = (lang === 'zh' && isZh) || (lang === 'en' && !isZh);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const btnLang = btn.getAttribute('data-lang-btn');
+                const shouldBeActive = btnLang === lang;
                 
                 if (shouldBeActive && !btn.classList.contains('active')) {
-                    // 添加切换动画
                     btn.classList.add('switching');
                     setTimeout(() => btn.classList.remove('switching'), 300);
                 }
@@ -2220,11 +2358,24 @@
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
             });
             
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            const langMap = {
+                'zh': 'zh-CN',
+                'en': 'en',
+                'ja': 'ja',
+                'id': 'id',
+                'ko': 'ko'
+            };
+            document.documentElement.lang = langMap[lang] || 'zh';
             updateProgress();
             
-            // 添加切换动画反馈
-            showToast(lang === 'zh' ? '已切换至中文' : 'Switched to English');
+            const toastMessages = {
+                'zh': '已切换至中文',
+                'en': 'Switched to English',
+                'ja': '日本語に切り替えました',
+                'id': 'Beralih ke Bahasa Indonesia',
+                'ko': '한국어로 전환되었습니다'
+            };
+            showToast(toastMessages[lang] || toastMessages['zh']);
         }
 
         function updateLanguage() {
@@ -2352,16 +2503,37 @@
                 }
             } catch (err) {
                 console.error('Copy failed:', err);
-                showToast(currentLang === 'zh' ? '复制失败，请手动复制' : 'Copy failed, please copy manually', true);
+                const failMessages = {
+                    'zh': '复制失败，请手动复制',
+                    'en': 'Copy failed, please copy manually',
+                    'ja': 'コピーに失敗しました。手動でコピーしてください',
+                    'id': 'Gagal menyalin, harap salin secara manual',
+                    'ko': '복사 실패, 수동으로 복사하세요'
+                };
+                showToast(failMessages[currentLang] || failMessages['zh'], true);
             }
         }
         
         function showCopySuccess(btn) {
-            showToast(currentLang === 'zh' ? '基金 ID 已复制' : 'Fund ID copied');
+            const copyMessages = {
+                'zh': '基金 ID 已复制',
+                'en': 'Fund ID copied',
+                'ja': 'ファンドIDをコピーしました',
+                'id': 'ID Dana disalin',
+                'ko': '펀드가 복사되었습니다'
+            };
+            const copiedMessages = {
+                'zh': '已复制',
+                'en': 'Copied',
+                'ja': 'コピー完了',
+                'id': 'Disalin',
+                'ko': '복사됨'
+            };
+            showToast(copyMessages[currentLang] || copyMessages['zh']);
             
             const originalText = btn.innerHTML;
             btn.classList.add('copied');
-            btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span>' + (currentLang === 'zh' ? '已复制' : 'Copied') + '</span>';
+            btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span>' + (copiedMessages[currentLang] || copiedMessages['zh']) + '</span>';
             
             setTimeout(() => {
                 btn.classList.remove('copied');
@@ -2401,15 +2573,30 @@
         function startSubscription() {
             const percentage = parseInt(document.getElementById('progressPercent').textContent);
             
+            const incompleteMessages = {
+                'zh': '请先完成所有步骤',
+                'en': 'Please complete all steps',
+                'ja': 'すべてのステップを完了してください',
+                'id': 'Harap selesaikan semua langkah',
+                'ko': '모든 단계를 완료해주세요'
+            };
+            
             if (percentage < 100) {
-                showToast(currentLang === 'zh' ? '请先完成所有步骤' : 'Please complete all steps', true);
+                showToast(incompleteMessages[currentLang] || incompleteMessages['zh'], true);
                 return;
             }
             
             triggerConfetti();
-            showToast(currentLang === 'zh' ? '正在跳转到申购页面...' : 'Redirecting...');
             
-            // 1.5秒后跳转到币安申购页面
+            const redirectMessages = {
+                'zh': '正在跳转到申购页面...',
+                'en': 'Redirecting...',
+                'ja': '申购ページにリダイレクトしています...',
+                'id': 'Mengalihkan ke halaman langganan...',
+                'ko': '申购 페이지로 리디렉션 중...'
+            };
+            showToast(redirectMessages[currentLang] || redirectMessages['zh']);
+            
             setTimeout(() => {
                 window.open('https://www.binance.com/en/my/sub-account/fund/detail?fundId=77&fundName=TzQuantAlpha001&fundAccountId=1209007166&currency=USDT', '_blank');
             }, 1500);
