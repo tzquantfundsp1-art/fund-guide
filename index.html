@@ -933,8 +933,9 @@
         }
 
         /* Fund ID Card */
+        /* Fund ID Card */
         .fund-card {
-            background: linear-gradient(135deg, #0f0f11 0%, #1a1a1e 25%, #16161a 50%, #1a1a1e 75%, #0d0d12 100%);
+            background: linear-gradient(135deg, #0f0f11 0%, #1a1a1e 50%, #0d0d12 100%);
             border-radius: 32px;
             padding: 48px;
             margin-bottom: 56px;
@@ -943,19 +944,8 @@
             overflow: hidden;
             box-shadow: 
                 var(--shadow-xl),
-                0 0 120px rgba(0, 113, 227, 0.25),
-                0 0 60px rgba(88, 86, 214, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fund-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 
-                var(--shadow-xl),
-                0 0 140px rgba(0, 113, 227, 0.3),
-                0 0 80px rgba(88, 86, 214, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                0 0 100px rgba(0, 113, 227, 0.2);
+            transition: transform 0.4s ease;
         }
 
         .fund-card::before {
@@ -966,10 +956,9 @@
             width: 200%;
             height: 200%;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(0, 113, 227, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 70% 30%, rgba(88, 86, 214, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255, 45, 146, 0.08) 0%, transparent 50%);
-            animation: rotate 40s linear infinite;
+                radial-gradient(circle at 30% 70%, rgba(0, 113, 227, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(88, 86, 214, 0.15) 0%, transparent 40%);
+            animation: rotate 30s linear infinite;
         }
 
         .fund-card::after {
@@ -979,12 +968,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.05) 0%, 
-                transparent 30%, 
-                rgba(0, 113, 227, 0.05) 50%,
-                transparent 70%,
-                rgba(255, 45, 146, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%, rgba(0, 113, 227, 0.03) 100%);
             pointer-events: none;
         }
 
@@ -999,17 +983,11 @@
 
         .fund-icon {
             font-size: 28px;
-            animation: float-subtle 4s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(0, 113, 227, 0.5));
         }
 
         .fund-title {
             font-size: 20px;
             font-weight: 700;
-            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .fund-display {
@@ -1017,9 +995,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 24px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.08) 0%, 
-                rgba(255, 255, 255, 0.04) 100%);
+            background: rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             padding: 28px 36px;
             cursor: pointer;
@@ -1028,11 +1004,7 @@
             z-index: 1;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             overflow: hidden;
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .fund-display::before {
@@ -1062,13 +1034,9 @@
             font-weight: 800;
             font-family: 'SF Mono', 'Courier New', monospace;
             letter-spacing: 0.08em;
-            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.7) 100%);
-            background-size: 200% 200%;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-            animation: gradient-shift 5s ease infinite;
         }
 
         .fund-copy-btn {
@@ -1076,8 +1044,7 @@
             align-items: center;
             gap: 10px;
             padding: 16px 28px;
-            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--gradient-end) 50%, var(--gradient-pink) 100%);
-            background-size: 200% 200%;
+            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--gradient-end) 100%);
             color: white;
             border: none;
             border-radius: 980px;
@@ -1085,13 +1052,9 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 8px 24px rgba(0, 113, 227, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
             position: relative;
             overflow: hidden;
-            animation: gradient-shift 4s ease infinite;
         }
 
         .fund-copy-btn::before {
@@ -1101,28 +1064,13 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.6s;
         }
 
-        .fund-copy-btn::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 4px;
-            right: 4px;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
-            border-radius: 980px;
-            pointer-events: none;
-        }
-
         .fund-copy-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                0 12px 32px rgba(0, 113, 227, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 113, 227, 0.5);
         }
 
         .fund-copy-btn:hover::before {
@@ -1130,28 +1078,17 @@
         }
 
         .fund-copy-btn.copied {
-            background: linear-gradient(135deg, var(--success) 0%, #30d158 50%, var(--success) 100%);
-            background-size: 200% 200%;
-            box-shadow: 
-                0 8px 24px rgba(52, 199, 89, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.2);
-            animation: gradient-shift 3s ease infinite, scale-in 0.3s ease;
+            background: linear-gradient(135deg, var(--success) 0%, #30d158 100%);
+            box-shadow: 0 8px 24px rgba(52, 199, 89, 0.5);
         }
 
         .fund-hint {
             margin-top: 20px;
             font-size: 15px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
             position: relative;
             z-index: 1;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .fund-hint::before {
-            content: '💡 ';
-            font-size: 14px;
-            opacity: 0.8;
         }
 
         /* Image Gallery */
